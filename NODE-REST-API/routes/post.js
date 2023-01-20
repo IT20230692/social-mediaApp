@@ -59,5 +59,15 @@ router.put('/:id/like', async (req, res) => {
 });
 
 //get a post
+router.get('/:id', async (req, res) => {
+    try{
+        const post = Post.findById(req.params.id);
+        res.status(200).json(post)
+
+    }catch{
+        res.status(500).json(err)
+    }
+})
+
 //get timeline
 module.exports = router;
